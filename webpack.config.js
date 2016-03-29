@@ -18,7 +18,7 @@ module.exports = {
     new webpack.DefinePlugin({"process.env": {NODE_ENV: '"production"'}}),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}})
+    //new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}})
   ],
   module:  {
     loaders: [
@@ -26,7 +26,7 @@ module.exports = {
       {test: /\.(ico|gif|png|jpg|jpeg|svg|webp)$/, loaders: ["file?context=static&name=/[path][name].[ext]"], exclude: /node_modules/}
     ],
     postLoaders: [
-      {test: /\.js$/, loaders: ["babel?presets[]=es2015&presets[]=stage-0&presets[]=react"], exclude: /node_modules/}
+      {test: /\.js$/, loader: "babel-loader", include: [ path.resolve(__dirname, 'src'), ], exclude: /node_modules/, query: { babelrc: false, presets: [ 'react', 'es2015', 'stage-0' ] }}
     ],
     noParse: /\.min\.js/
   },
