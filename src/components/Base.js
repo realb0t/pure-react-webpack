@@ -1,7 +1,9 @@
-import { Component } from 'react';
+import React from 'react';
 
-class Base extends Component {
+class Base extends React.Component {
   render() {
     return (<div className="base-component">Hello world</div>);
   }
 }
+
+export default Base;

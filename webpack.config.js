@@ -6,7 +6,7 @@ module.exports = {
   cache:   true,
   context: __dirname,
   debug:   true,
-  devtool: false,
+  devtool: 'sourcemap',
   entry:   [ path.join(__dirname, "src/client") ],
   output:  {
     path:          path.join(__dirname, "dist"),
@@ -26,7 +26,7 @@ module.exports = {
       {test: /\.(ico|gif|png|jpg|jpeg|svg|webp)$/, loaders: ["file?context=static&name=/[path][name].[ext]"], exclude: /node_modules/}
     ],
     postLoaders: [
-      {test: /\.js$/, loaders: ["babel?presets[]=es2015&presets[]=stage-0&presets[]=react&presets[]=react-hmre"], exclude: /node_modules/}
+      {test: /\.js$/, loaders: ["babel?presets[]=es2015&presets[]=stage-0&presets[]=react"], exclude: /node_modules/}
     ],
     noParse: /\.min\.js/
   },
